@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import styles from './InputForm.module.css'
 
 type InputFormProps = {
     name: string,
@@ -10,21 +11,27 @@ const InputForm = ({name, formHandler} : InputFormProps) => {
     const [value, setValue] = useState<string>("")
 
     return (
-        <form onSubmit={e => {
-            e.preventDefault();
+        <form 
+        className={styles.FormContainer}
+        onSubmit={e => {
+            e.preventDefault(); // Prevent HTML reload on submit
             formHandler(value);
             }}>
-            <div>
-                <label>{name}</label>
-                <input placeholder={name} 
+            <div className={styles.FormInputContainer}>
+                <input 
+                className={styles.FormInput}
+                placeholder={name} 
                 type="text" 
                 onKeyUp={(e : any) => setValue(e.target.value) } />
             </div>
-            <button formAction="submit" onClick={e => {
-                e.preventDefault()
+            <button 
+            className={styles.FormButton}
+            formAction="submit" 
+            onClick={e => {
+                e.preventDefault() // Prevent HTML reload on submit
                 formHandler(value)
                 }}>
-                GO
+                {">"}
             </button>
         </form>
     )
