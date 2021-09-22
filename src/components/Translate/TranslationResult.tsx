@@ -1,19 +1,25 @@
-import React from 'react'
+import React, {useState} from 'react'
+import InputForm from "./InputForm";
 
 const TranslationResult = () => {
-    const word : string = "PTSD555"
 
-    const createHandSignElement = () => {
+    const [translation, setTranslation] = useState<string | null>(null);
+
+    const createHandSignElement = (translation : string) => {
         return (
-            word.split("").map((letter, i, arr )=> {
-                return <img src={process.env.PUBLIC_URL + '/signs/' + letter + '.png'}/>;
+            translation.split("").map((letter, i, arr )=> {
+                return <img key={i} alt={letter} src={process.env.PUBLIC_URL + '/signs/' + letter + '.png'}/>;
             })
         )
+    }
+    const handleSubmitTranslate = (value : string) => {
+        setTranslation(value);
     }
 
     return (
         <div>
-            {createHandSignElement()}
+            <InputForm name={"Translate"} formHandler={handleSubmitTranslate}/>
+            {createHandSignElement([translation].toString())}
         </div>
     )
 }

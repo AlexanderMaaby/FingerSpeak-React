@@ -1,5 +1,6 @@
-import React from 'react'
+import React, {useState} from 'react'
 import TranslationResult from "../Translate/TranslationResult";
+import InputForm from "../Translate/InputForm";
 
 const Translate = () => {
 
