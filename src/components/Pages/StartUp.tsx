@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { fetchUser } from '../../api/userAPI';
 import IUser from '../../models/IUser';
-import InputForm from '../Translate/InputForm'
+import InputForm from '../Translate/InputForm';
 
 const StartUp = () => {
 
