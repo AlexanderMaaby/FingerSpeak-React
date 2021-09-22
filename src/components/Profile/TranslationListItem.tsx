@@ -7,9 +7,9 @@ const TranslationListItem = () => {
 
     const createListElements = () => {
         return (
-            translationList.map((x, i, arr )=> {
+            translationList.map((word, i, arr )=> {
                 if(arr.length-11 < i) {
-                    return <p key={x}>{x}</p>
+                    return <p key={word}>{word}</p>
                 }
             })
         )
