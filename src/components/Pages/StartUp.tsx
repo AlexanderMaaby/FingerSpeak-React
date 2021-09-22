@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router';
 import { fetchUser } from '../../api/userAPI';
 import IUser from '../../models/IUser';
 import InputForm from '../Translate/InputForm';
@@ -10,6 +11,8 @@ const StartUp = () => {
     const [user, setUser] = useState<IUser | null>(null)
     const [error, setError] = useState<string | null>(null);
 
+    const history = useHistory();
+
     const handleSubmitUsername = async (value: string) => {
         setIsLoadingUser(true);
         const [error, user] = await fetchUser(value);
@@ -17,6 +20,12 @@ const StartUp = () => {
         setUser(user);
         setIsLoadingUser(false);
     }
+
+    useEffect(() => {
+        if (user) {
+            history.push("/translate")
+        }
+    }, [user, history])
 
     return (
         <div>
