@@ -1,6 +1,6 @@
 import React from "react";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
-import NotFound from "../Pages/NotFound"
+import NotFound from "../Pages/NotFound";
 import Profile from "../Pages/Profile";
 import StartUp from "../Pages/StartUp";
 import Translate from "../Pages/Translate";
