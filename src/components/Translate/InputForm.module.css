@@ -3,7 +3,6 @@
     flex-direction: row;
     align-items: center;
     background-color: #efefef;
-    box-shadow: 3px 3px 7px #ccc;
     min-width: 60vw;
     width: 40%;
     border-radius: 50rem;
@@ -11,7 +10,7 @@
 }
 
 .FormContainer:focus-within {
-    outline: solid rgb(191, 139, 255) 3px;
+    outline: solid rgb(50, 213, 250) 3px;
 }
 
 .FormInputContainer {
@@ -30,6 +29,7 @@
     border: none;
     background-color: rgba(0,0,0,0);
     width: 100%;
+    padding: 1rem 0;
 }
 
 .FormInput:focus {

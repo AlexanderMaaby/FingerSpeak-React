@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { fetchUser } from '../../api/userAPI';
 import IUser from '../../models/IUser';
 import InputForm from '../Translate/InputForm';
+import Loader from '../UX/Loader';
 
 const StartUp = () => {
 
@@ -19,17 +20,17 @@ const StartUp = () => {
 
     return (
         <div>
-            <h1>Startup</h1>
+            <h2>Login</h2>
+            <InputForm name="Username" formHandler={handleSubmitUsername} />
             <p> {error} </p>
             {
                 isLoadingUser &&
-                <p>Loading...</p>
+                <Loader text="Signing in..." />
             }
             {
                 user &&
                 <p>Username: {user.username}</p>
             }
-            <InputForm name="Username" formHandler={handleSubmitUsername} />
         </div>
     )
 }

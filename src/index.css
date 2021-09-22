@@ -1,3 +1,8 @@
+* {
+  box-sizing: border-box;
+  position: relative;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +10,33 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' %3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' x2='0' y1='0' y2='1' gradientTransform='rotate(43,0.5,0.5)'%3E%3Cstop offset='0' stop-color='%239D31FF'/%3E%3Cstop offset='1' stop-color='%238BFDFF'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpattern id='b' width='15' height='15' patternUnits='userSpaceOnUse'%3E%3Ccircle fill='%23ffffff' cx='7.5' cy='7.5' r='7.5'/%3E%3C/pattern%3E%3Crect width='100%25' height='100%25' fill='url(%23a)'/%3E%3Crect width='100%25' height='100%25' fill='url(%23b)' fill-opacity='0.05'/%3E%3C/svg%3E");
+  background-attachment: fixed;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+@keyframes spin {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+@keyframes bob {
+  0% {
+      transform: translateY(0rem)
+  }
+  50% {
+      transform: translateY(1rem)
+  }
+  100% {
+      transform: translateY(0rem)
+  }
 }
