@@ -41,4 +41,43 @@ const createUser = async (username : string) => {
     return newUser;
 }
 
-export {fetchUser}
+const updateTranslations = async (user : IUser, translations: string[] ) => {
+    try {
+        const updatedUser = await fetch(`${URL}/${user.id}`, {
+            method: 'PATCH',
+            headers: {
+                'X-API-Key': APIKEY,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                translations
+            })
+        }).then(response => {
+            return response.json()
+        }).then(result => {
+            return result
+        })
+        return [null, updatedUser]
+    } catch (error) {
+        return [error, null]
+    }
+}
+
+const addToTranslations = (user : IUser, translation: string ) => {
+    updateTranslations(user, [...user.translations, translation]);
+}
+
+const clearAllTranslations = (user : IUser) => {
+    updateTranslations(user, []);
+}
+
+const removeFromTranslations = (user : IUser, translation: string ) => {
+    const translations = [...user.translations];
+    const removeIndex = translations.indexOf(translation);
+    if(removeIndex !== -1) {
+        translations.splice(removeIndex, 1);
+    }
+    updateTranslations(user, translations);
+}
+
+export {fetchUser, addToTranslations, clearAllTranslations, removeFromTranslations}
