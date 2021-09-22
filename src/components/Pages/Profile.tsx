@@ -1,9 +1,10 @@
 import React from 'react'
+import TranslationList from "../Profile/TranslationList";
 
 const Profile = () => {
     return (
         <div>
-            <h1>Profile</h1>
+            <TranslationList/>
         </div>
     )
 }
