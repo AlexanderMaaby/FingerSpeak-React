@@ -2,6 +2,7 @@ import React from 'react'
 import TranslationResult from "../Translate/TranslationResult";
 
 const Translate = () => {
+
     return (
         <div>
             <h1>Translate</h1>

@@ -1,0 +1,59 @@
+.FormContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #efefef;
+    box-shadow: 3px 3px 7px #ccc;
+    min-width: 60vw;
+    width: 40%;
+    border-radius: 50rem;
+    margin: auto;
+}
+
+.FormContainer:focus-within {
+    outline: solid rgb(191, 139, 255) 3px;
+}
+
+.FormInputContainer {
+    position: relative;
+    width: 100%;
+    margin-left: 1rem;
+}
+
+.FormLabel {
+    position: absolute;
+    top: -2.2rem;
+    left: 2rem;
+}
+
+.FormInput {
+    border: none;
+    background-color: rgba(0,0,0,0);
+    width: 100%;
+}
+
+.FormInput:focus {
+    outline: none;
+}
+
+.FormButton {
+    border: none;
+    background-color: #343434;
+    margin: .3rem;
+    color: white;
+    padding: 1em;
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 0;
+    border-radius: 50rem;
+    transition: .2s ease;
+}
+
+.FormButton:hover {
+    cursor: pointer;
+    filter: brightness(1.2);
+}
+
+.FormButton:active {
+    filter: brightness(.8);
+}
