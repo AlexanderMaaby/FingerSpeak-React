@@ -64,11 +64,11 @@ const updateTranslations = async (user : IUser, translations: string[] ) => {
 }
 
 const addToTranslations = (user : IUser, translation: string ) => {
-    updateTranslations(user, [...user.translations, translation]);
+    return updateTranslations(user, [...user.translations, translation]);
 }
 
 const clearAllTranslations = (user : IUser) => {
-    updateTranslations(user, []);
+    return updateTranslations(user, []);
 }
 
 const removeFromTranslations = (user : IUser, translation: string ) => {
