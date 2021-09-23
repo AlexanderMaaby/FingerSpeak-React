@@ -21,4 +21,8 @@
 }
 .List {
     color: white;
+    font-weight: bold;
+    position: relative;
+    bottom: 13px;
+    right: 5px;
 }

@@ -11,14 +11,34 @@ const TranslationListItem = () => {
     }
     setTranslationList()
 
-    const createListElements = () => {
+    const createHandSignElement = (translation : string) => {
         return (
-            translationList.map((word, i, arr )=> {
-                if(arr.length-11 < i) {
-                    return <p key={i}>{word}</p>
-                }
+            translation.split("").map((letter, i, arr )=> {
+                return <img
+                    key={i}
+                    alt={letter}
+                    width="3%"
+                    src={process.env.PUBLIC_URL + '/signs/' + letter + '.png'}/>;
             })
         )
+    }
+
+    const createListElements = () => {
+        if(translationList === undefined)
+            return <p>No translations found</p>
+        if(translationList.length === 0) {
+            return <p>No translations found</p>
+        }
+        else {
+            return (
+                translationList.map((word, i, arr )=> {
+                    if(arr.length-11 < i) {
+                        return <p key={i}><span className={styles.List}>{word} -</span>{createHandSignElement(word)}</p>
+                    }
+                    return null
+                })
+            )
+        }
     }
 
     return (

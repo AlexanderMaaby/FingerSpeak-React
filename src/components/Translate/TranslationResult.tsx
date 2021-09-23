@@ -16,6 +16,7 @@ const TranslationResult = () => {
                 return <img
                     key={i}
                     alt={letter}
+                    width="10%"
                     src={process.env.PUBLIC_URL + '/signs/' + letter + '.png'}/>;
             })
         )
