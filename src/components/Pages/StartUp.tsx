@@ -9,22 +9,24 @@ import Loader from '../UX/Loader';
 
 const StartUp = () => {
 
+    document.title = "FingerSpeak - Login";
+
     const [isLoadingUser, setIsLoadingUser] = useState<boolean>(false);
 
-    const dispatch = useDispatch()
-    const user = useUserSelector(state => state.user)
-    const error = useUserSelector(state => state.error)
+    const dispatch = useDispatch();
+    const user = useUserSelector(state => state.user);
+    const error = useUserSelector(state => state.error);
     
     const history = useHistory();
 
     const handleSubmitUsername = (value: string) => {
-        dispatch( actionFetchUser(value) )
+        dispatch(actionFetchUser(value));
         setIsLoadingUser(true);
     }
 
     useEffect(() => {
         const localUser = getCurrentSession();
-        if (localUser) dispatch( actionSetUser(localUser) )
+        if (localUser) dispatch(actionSetUser(localUser))
         if (user) {
             setIsLoadingUser(false);
             history.replace("/translate")

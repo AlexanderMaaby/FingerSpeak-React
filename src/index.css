@@ -20,6 +20,11 @@ code {
     monospace;
 }
 
+h1 {
+  font-family: 'Montserrat Alternates', sans-serif !important;
+  color: azure;
+}
+
 @keyframes spin {
   from {
       transform: rotate(0deg);

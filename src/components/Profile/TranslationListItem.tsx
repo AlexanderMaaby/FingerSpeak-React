@@ -1,19 +1,15 @@
-import React from 'react'
-import styles from './TranslationList.module.css'
-import {useUserSelector} from "../../store/user/userReducers";
+import React from 'react';
+import styles from './TranslationListItem.module.css';
 
-const TranslationListItem = () => {
+type TranslationListItemProps = {
+    translation: string
+}
 
-    const user = useUserSelector(state => state.user)
-    let translationList : string[];
-    const setTranslationList = () => {
-        if(user?.translations) translationList = user.translations
-    }
-    setTranslationList()
+const TranslationListItem = ({translation} : TranslationListItemProps) => {
 
     const createHandSignElement = (translation : string) => {
         return (
-            translation.split("").map((letter, i, arr )=> {
+            translation.split("").map((letter, i)=> {
                 return <img
                     key={i}
                     alt={letter}
@@ -23,28 +19,21 @@ const TranslationListItem = () => {
         )
     }
 
-    const createListElements = () => {
-        if(translationList === undefined)
-            return <p className={styles.List}>No translations found</p>
-        if(translationList.length === 0) {
-            return <p className={styles.List}>No translations found</p>
-        }
-        else {
-            return (
-                translationList.map((word, i, arr )=> {
-                    if(arr.length-11 < i) {
-                        return <p key={i}><span className={styles.List}>{word} -</span>{createHandSignElement(word)}</p>
-                    }
-                    return null
-                })
-            )
-        }
-    }
-
     return (
-        <div>
-            <h3 className={styles.List}>Last 10 translations</h3>
-            {createListElements()}
+        <div className={styles.ItemContainer}>
+            <div className={styles.TranslationItemFlair}></div>
+            <div className={styles.TranslationItemContainer}>
+                <div className={styles.TranslationItem}> 
+                    <p className={styles.ListItemDescriptor}> Original: </p>
+                    <p className={styles.OriginalWord}>"{translation}"</p>
+                </div>
+                <div className={styles.TranslationItem}>
+                    <p className={styles.ListItemDescriptor}> Result: </p>
+                    <div className={styles.ListTranslation}>
+                    {createHandSignElement(translation)}
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

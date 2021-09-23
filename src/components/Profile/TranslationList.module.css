@@ -1,28 +1,50 @@
-.DeleteButton {
+.LimitText {
+    font-size: 1.3rem;
+    color: whitesmoke;
+}
+
+.GeneralButton {
     border: none;
-    background-color: #614b81;
-    margin: .3rem;
     color: white;
-    padding: 1em;
+    padding: 1em 3em;
     font-size: 1.2rem;
-    font-weight: bold;
     line-height: 0;
-    border-radius: 50rem;
     transition: .2s ease;
 }
 
-.DeleteButton:hover {
+.GeneralButton:hover {
     cursor: pointer;
     filter: brightness(1.2);
 }
 
-.DeleteButton:active {
+.GeneralButton:active {
     filter: brightness(.8);
 }
-.List {
-    color: white;
-    font-weight: bold;
-    position: relative;
+
+.DeleteButton {
+    background-color: #cf5e7b;
+    border-radius: 0 50rem 50rem 0;
+}
+
+.ShowAllButton {
+    background-color: #1fa7a0;
+    border-radius: 50rem 0 0 50rem;
+}
+
+.GeneralButton:disabled {
+    opacity: .2;
+    cursor: default;
+}
+
+.GeneralButton:disabled:hover {
+    cursor: default;
+    filter: none;
+}
+
+.TranslationList {
+    color: rgb(33, 28, 61);
     bottom: 13px;
     right: 5px;
+    width: 70%;
+    margin: auto;
 }

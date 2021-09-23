@@ -15,15 +15,16 @@ const Navbar = () => {
 
     return (
         <nav className={styles.NavbarContainer}>
-            <h1 onClick={() => routeTo("/")} >FingerSpeak</h1>
+            <h1 className={styles.NavTitle} onClick={() => routeTo("/")} >FingerSpeak</h1>
             {
                 user &&
                 <ul>
                     <li onClick={() => routeTo("/translate")} >
-                        Translate
+                        <p>Translate</p>
                     </li>
                     <li onClick={() => routeTo("/profile")} >
-                        {user ? user.username : "Profile"}
+                        <img src={`${process.env.PUBLIC_URL}/base-avatar.png`} alt="User Avatar" />
+                        <p>{user ? user.username : "Profile"}</p>
                     </li>
                 </ul>
             }   

@@ -4,10 +4,11 @@ import styles from './InputForm.module.css'
 type InputFormProps = {
     name: string,
     formHandler(value: string): void,
-    limit?: number | undefined
+    limit?: number | undefined,
+    autofocus?: boolean;
 }
 
-const InputForm = ({name, formHandler, limit} : InputFormProps) => {
+const InputForm = ({name, formHandler, limit, autofocus = false} : InputFormProps) => {
 
     const [value, setValue] = useState<string>("")
     const [danger, setDanger] = useState(false);
@@ -34,6 +35,7 @@ const InputForm = ({name, formHandler, limit} : InputFormProps) => {
                 placeholder={name} 
                 maxLength={limit ? limit : 100}
                 type="text" 
+                autoFocus={true}
                 onChange={(e : any) => handleValueChange(e.target.value)} />
                 {
                     limit &&
@@ -43,6 +45,7 @@ const InputForm = ({name, formHandler, limit} : InputFormProps) => {
             <button 
             className={styles.FormButton}
             formAction="submit" 
+            disabled={value.length < 1}
             onClick={e => {
                 e.preventDefault() // Prevent HTML reload on submit
                 formHandler(value)

@@ -1,11 +1,25 @@
-import React from 'react'
+import React from 'react';
+import { useUserSelector } from '../../store/user/userReducers';
 import TranslationList from "../Profile/TranslationList";
 
 const Profile = () => {
+
+    const user = useUserSelector(state => state.user)
+
+    if(user) {
+        document.title = user.username
+    }
+
     return (
-        <div>
-            <TranslationList/>
-        </div>
+        <>
+            {
+                user &&
+                <>
+                    <h1>Most Recent Translations</h1>
+                    <TranslationList user={user} limit={10}/>
+                </>
+            }
+        </>
     )
 }
 
