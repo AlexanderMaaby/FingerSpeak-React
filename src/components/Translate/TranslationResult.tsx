@@ -13,13 +13,20 @@ const TranslationResult = () => {
     const createHandSignElement = (translation : string) => {
         return (
             translation.split("").map((letter, i, arr )=> {
-                return <img key={i} alt={letter} src={process.env.PUBLIC_URL + '/signs/' + letter + '.png'}/>;
+                return <img
+                    key={i}
+                    alt={letter}
+                    src={process.env.PUBLIC_URL + '/signs/' + letter + '.png'}/>;
             })
         )
     }
     const handleSubmitTranslate = (value : string) => {
-        setTranslation(value);
-        if (user) dispatch(actionAddToUserTranslations(user, value))
+        value = value.replace(/[^a-zA-Z]+/g, '');
+        //If user session is active and the length of the word is still over 0 after regex trim.
+        if (user && value.length > 0) {
+            dispatch(actionAddToUserTranslations(user, value));
+            setTranslation(value);
+        }
     }
 
     return (

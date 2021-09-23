@@ -6,16 +6,16 @@ const TranslationListItem = () => {
 
     const user = useUserSelector(state => state.user)
     let translationList : string[];
-    const setTranslationlist = () => {
+    const setTranslationList = () => {
         if(user?.translations) translationList = user.translations
     }
-    setTranslationlist()
+    setTranslationList()
 
     const createListElements = () => {
         return (
             translationList.map((word, i, arr )=> {
                 if(arr.length-11 < i) {
-                    return <p key={word}>{word}</p>
+                    return <p key={i}>{word}</p>
                 }
             })
         )
