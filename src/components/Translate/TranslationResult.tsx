@@ -1,9 +1,14 @@
 import React, {useState} from 'react'
 import InputForm from "./InputForm";
+import {useDispatch} from "react-redux";
+import {actionAddToUserTranslations} from "../../store/user/userActions";
+import {useUserSelector} from "../../store/user/userReducers";
 
 const TranslationResult = () => {
 
     const [translation, setTranslation] = useState<string | null>(null);
+    const user = useUserSelector(state => state.user)
+    const dispatch = useDispatch()
 
     const createHandSignElement = (translation : string) => {
         return (
@@ -14,6 +19,7 @@ const TranslationResult = () => {
     }
     const handleSubmitTranslate = (value : string) => {
         setTranslation(value);
+        if (user) dispatch(actionAddToUserTranslations(user, value))
     }
 
     return (

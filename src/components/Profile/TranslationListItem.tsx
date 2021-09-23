@@ -1,9 +1,15 @@
 import React from 'react'
+import styles from './TranslationList.module.css'
+import {useUserSelector} from "../../store/user/userReducers";
 
 const TranslationListItem = () => {
 
-    const translationList : string[] = ["hello", "happy", "attenåttien", "banan", "soconfused", "meowmeow", "mertest", "enda et element",
-    "meretull", "erdet10snart?", "prolly", "entiltobesure"];
+    const user = useUserSelector(state => state.user)
+    let translationList : string[];
+    const setTranslationlist = () => {
+        if(user?.translations) translationList = user.translations
+    }
+    setTranslationlist()
 
     const createListElements = () => {
         return (
@@ -17,7 +23,7 @@ const TranslationListItem = () => {
 
     return (
         <div>
-            <h3>Liste =)</h3>
+            <h3 className={styles.List}>Last 10 translations</h3>
             {createListElements()}
         </div>
     )
