@@ -25,9 +25,9 @@ const TranslationListItem = () => {
 
     const createListElements = () => {
         if(translationList === undefined)
-            return <p>No translations found</p>
+            return <p className={styles.List}>No translations found</p>
         if(translationList.length === 0) {
-            return <p>No translations found</p>
+            return <p className={styles.List}>No translations found</p>
         }
         else {
             return (
