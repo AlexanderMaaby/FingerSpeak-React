@@ -1,0 +1,53 @@
+.ItemContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem auto;
+    height: fit-content;
+}
+
+.TranslationItemContainer {
+    width: 100%;
+    min-height: 10rem;
+    padding: 1rem 0;
+    background-color: rgba(245, 245, 245, 0.8);
+    border-radius: 0 0 1rem 1rem;
+}
+
+.TranslationItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    margin: auto;
+}
+
+.TranslationItemFlair {
+    width: 100%;
+    background-color: rgb(114, 94, 204);
+    margin-right: 0;
+    margin-left: auto;
+    height: .5rem;
+}
+
+.ListItemDescriptor {
+    padding-right: 3rem;
+}
+
+.OriginalWord {
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+.ListTranslation {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    width: 80%;
+}
+
+.ListTranslation img {
+    min-width: 2.5rem;
+}
