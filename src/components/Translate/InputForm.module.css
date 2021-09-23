@@ -6,7 +6,7 @@
     min-width: 60vw;
     width: 40%;
     border-radius: 50rem;
-    margin: auto;
+    margin: 2rem auto;
 }
 
 .FormContainer:focus-within {
@@ -17,19 +17,22 @@
     position: relative;
     width: 100%;
     margin-left: 1rem;
+    margin-right: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-.FormLabel {
-    position: absolute;
-    top: -2.2rem;
-    left: 2rem;
+.Danger {
+    color: red;
 }
 
 .FormInput {
     border: none;
     background-color: rgba(0,0,0,0);
     width: 100%;
-    padding: 1rem 0;
+    padding: 1rem 1rem;
+    font-size: 1.3rem;
 }
 
 .FormInput:focus {
@@ -39,13 +42,13 @@
 .FormButton {
     border: none;
     background-color: #343434;
-    margin: .3rem;
     color: white;
-    padding: 1em;
+    padding: 2em;
+    height: 100%;
     font-size: 1.2rem;
     font-weight: bold;
     line-height: 0;
-    border-radius: 50rem;
+    border-radius: 0 50rem 50rem 0;
     transition: .2s ease;
 }
 

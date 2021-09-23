@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
-import { actionFetchUser } from '../../store/user/userActions';
+import getCurrentSession from '../../store/localstorage';
+import { actionFetchUser, actionSetUser } from '../../store/user/userActions';
 import { useUserSelector } from '../../store/user/userReducers';
 import InputForm from '../Translate/InputForm';
 import Loader from '../UX/Loader';
@@ -9,7 +10,6 @@ import Loader from '../UX/Loader';
 const StartUp = () => {
 
     const [isLoadingUser, setIsLoadingUser] = useState<boolean>(false);
-    console.log(isLoadingUser)
 
     const dispatch = useDispatch()
     const user = useUserSelector(state => state.user)
@@ -23,16 +23,18 @@ const StartUp = () => {
     }
 
     useEffect(() => {
+        const localUser = getCurrentSession();
+        if (localUser) dispatch( actionSetUser(localUser) )
         if (user) {
             setIsLoadingUser(false);
-            history.push("/translate")
+            history.replace("/translate")
         }
-    }, [user, history])
+    }, [user, history, dispatch])
 
     return (
         <div>
-            <h2>Login</h2>
-            <InputForm name="Username" formHandler={handleSubmitUsername} />
+            <h1>Login</h1>
+            <InputForm name="Username" formHandler={handleSubmitUsername} limit={20}/>
             {
                 isLoadingUser &&
                 <Loader text="Signing in..." />

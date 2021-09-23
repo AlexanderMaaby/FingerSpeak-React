@@ -3,12 +3,23 @@ import styles from './InputForm.module.css'
 
 type InputFormProps = {
     name: string,
-    formHandler(value: string): void
+    formHandler(value: string): void,
+    limit?: number | undefined
 }
 
-const InputForm = ({name, formHandler} : InputFormProps) => {
+const InputForm = ({name, formHandler, limit} : InputFormProps) => {
 
     const [value, setValue] = useState<string>("")
+    const [danger, setDanger] = useState(false);
+
+    const handleValueChange = (input : string) => {
+        if (limit) {
+            limit - value.length < 10 ? setDanger(true) : setDanger(false);
+            if(limit - value.length >= 0) { setValue(input); }
+        } else {
+            setValue(input);
+        }
+    }
 
     return (
         <form 
@@ -21,8 +32,13 @@ const InputForm = ({name, formHandler} : InputFormProps) => {
                 <input 
                 className={styles.FormInput}
                 placeholder={name} 
+                maxLength={limit ? limit : 100}
                 type="text" 
-                onKeyUp={(e : any) => setValue(e.target.value) } />
+                onChange={(e : any) => handleValueChange(e.target.value)} />
+                {
+                    limit &&
+                    <p className={danger ? styles.Danger : ""}>{limit - value.length}</p>
+                }
             </div>
             <button 
             className={styles.FormButton}

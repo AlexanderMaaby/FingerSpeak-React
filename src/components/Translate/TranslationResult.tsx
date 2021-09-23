@@ -32,7 +32,7 @@ const TranslationResult = () => {
 
     return (
         <div>
-            <InputForm name={"Translate"} formHandler={handleSubmitTranslate}/>
+            <InputForm name={"Translate"} formHandler={handleSubmitTranslate} limit={40}/>
             {createHandSignElement([translation].toString())}
         </div>
     )

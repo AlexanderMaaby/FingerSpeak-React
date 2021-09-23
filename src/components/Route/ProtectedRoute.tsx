@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { Redirect, Route } from 'react-router'
+import getCurrentSession from '../../store/localstorage'
 import { actionSetUser } from '../../store/user/userActions'
 import { useUserSelector } from '../../store/user/userReducers'
 
@@ -16,11 +17,8 @@ const ProtectedRoute = ({path, component, exact} : ProtectedRouteProps) => {
     const user = useUserSelector(state => state.user)
 
     useEffect(() => {
-        const stored = localStorage.getItem('session')
-        if(stored) {
-            const session = JSON.parse(stored)
-            dispatch( actionSetUser(session) )
-        }
+        const localUser = getCurrentSession();
+        if(localUser)  dispatch( actionSetUser(localUser) ) 
     }, [dispatch])
 
     if(!user) {
