@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
-import { actionFetchUser } from '../../store/user/userActions';
+import { actionAddToUserTranslations, actionClearUserTranslations, actionFetchUser } from '../../store/user/userActions';
 import { useUserSelector } from '../../store/user/userReducers';
 import InputForm from '../Translate/InputForm';
 import Loader from '../UX/Loader';
@@ -18,10 +18,7 @@ const StartUp = () => {
     const dispatch = useDispatch()
     const user = useUserSelector(state => state.user)
     const error = useUserSelector(state => state.error)
-
-    console.log(user);
     
-
     const history = useHistory();
 
     const handleSubmitUsername = async (value: string) => {
@@ -32,7 +29,7 @@ const StartUp = () => {
 
     useEffect(() => {
         if (user) {
-            //history.push("/translate")
+            history.push("/translate")
         }
     }, [user, history])
 
@@ -45,12 +42,22 @@ const StartUp = () => {
                 <Loader text="Signing in..." />
             }
             {
+                error &&
+                <p>Error: {error}</p>
+            }
+            {
                 user &&
                 <>
                     <p>Username: {user.username}</p>
-                    <p>Error: {error}</p>
+                    <button onClick={() => {
+                        dispatch( actionAddToUserTranslations(user ,"Startup Test Add") )
+                    }}> Add to </button>
+                    <button onClick={() => {
+                        dispatch( actionClearUserTranslations(user) )
+                    }}> Clear </button>
                 </>
             }
+
         </div>
     )
 }
