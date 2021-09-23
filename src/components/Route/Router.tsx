@@ -5,6 +5,7 @@ import Profile from "../Pages/Profile";
 import StartUp from "../Pages/StartUp";
 import Translate from "../Pages/Translate";
 import Navbar from "./Navbar";
+import ProtectedRoute from "./ProtectedRoute";
 
 const Router = () => {
     return (
@@ -12,8 +13,8 @@ const Router = () => {
             <Navbar />
             <Switch>
                 <Route path="/" component={StartUp} exact={true}/>
-                <Route path="/translate" component={Translate} exact={true}/>
-                <Route path="/profile" component={Profile} exact={true}/>
+                <ProtectedRoute path="/translate" component={Translate} exact={true}/>
+                <ProtectedRoute path="/profile" component={Profile} exact={true}/>
                 <Route path="*" component={NotFound}/>
             </Switch>
         </BrowserRouter>

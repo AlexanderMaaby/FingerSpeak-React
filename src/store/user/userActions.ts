@@ -6,7 +6,7 @@ export enum UserAction {
     SET_ERROR = 'SET_ERROR',
     ADD_TO_USER_TRANSLATIONS = 'ADD_TO_USER_TRANSLATIONS',
     CLEAR_USER_TRANSLATIONS = 'CLEAR_USER_TRANSLATIONS',
-
+    LOGOUT_USER = 'LOGOUT_USER',
 }
 
 // Actions
@@ -33,4 +33,8 @@ export const actionAddToUserTranslations = (user : IUser, translation: string) =
 export const actionClearUserTranslations = (user : IUser) => ({
     type: UserAction.CLEAR_USER_TRANSLATIONS,
     payload: user
+})
+
+export const actionLogoutUser = () => ({
+    type : UserAction.LOGOUT_USER,
 })
