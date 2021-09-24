@@ -20,7 +20,7 @@ const TranslationResult = () => {
                     <img className={styles.HandSign}
                         width="10%"
                         alt={letter}
-                        src={process.env.PUBLIC_URL + '/signs/' + letter + '.png'}/>
+                        src={process.env.PUBLIC_URL + '/signs/' + letter.toLowerCase() + '.png'}/>
                     <p className={styles.HandLetter}>{letter}</p>
                 </span>
                 )
