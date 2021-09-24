@@ -53,6 +53,6 @@ Below Illustrations created with Adobe XD:
 
 ## You found Dewaldo
 
-![Component Tree](./dewaldo.png)
+![Dewaldo](./dewaldo.png)
 
 # 
