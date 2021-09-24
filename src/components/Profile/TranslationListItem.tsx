@@ -14,7 +14,7 @@ const TranslationListItem = ({translation} : TranslationListItemProps) => {
                     key={i}
                     alt={letter}
                     width="3%"
-                    src={process.env.PUBLIC_URL + '/signs/' + letter + '.png'}/>;
+                    src={process.env.PUBLIC_URL + '/signs/' + letter.toLowerCase() + '.png'}/>;
             })
         )
     }
