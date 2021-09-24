@@ -36,7 +36,7 @@ const InputForm = ({name, formHandler, limit, autofocus = false, disabled = fals
                 placeholder={name} 
                 maxLength={limit ? limit : 100}
                 type="text" 
-                autoFocus={true}
+                autoFocus={autofocus}
                 onChange={(e : any) => handleValueChange(e.target.value)} />
                 {
                     limit &&
