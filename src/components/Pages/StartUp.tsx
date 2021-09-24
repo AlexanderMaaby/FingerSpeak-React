@@ -20,8 +20,8 @@ const StartUp = () => {
     const history = useHistory();
 
     const handleSubmitUsername = (value: string) => {
-        dispatch(actionFetchUser(value));
         setIsLoadingUser(true);
+        dispatch(actionFetchUser(value));
     }
 
     useEffect(() => {
@@ -36,7 +36,7 @@ const StartUp = () => {
     return (
         <div>
             <h1>Login</h1>
-            <InputForm name="Username" formHandler={handleSubmitUsername} limit={20}/>
+            <InputForm name="Username" formHandler={handleSubmitUsername} limit={20} disabled={isLoadingUser}/>
             {
                 isLoadingUser &&
                 <Loader text="Signing in..." />
