@@ -30,10 +30,10 @@ const TranslationResult = () => {
     }
 
     const handleSubmitTranslate = (value : string) => {
-        setBlocked(true) // Should prevent spamming submissions from crashing the app
         value = value.replace(/[^a-zA-Z]+/g, '');
         //If user session is active and the length of the word is still over 0 after regex trim.
         if (user && value.length > 0) {
+            setBlocked(true) // Should prevent spamming submissions from crashing the app
             dispatch(actionAddToUserTranslations(user, value));
             setTranslation(value);
         }
@@ -42,7 +42,7 @@ const TranslationResult = () => {
 
     return (
         <div className={styles.TranslateContainer}>
-            <InputForm name={"Translate"} formHandler={handleSubmitTranslate} limit={40}/>
+            <InputForm name={"Translate"} formHandler={handleSubmitTranslate} limit={40} disabled={blocked}/>
             {
                 translation &&
                 <>

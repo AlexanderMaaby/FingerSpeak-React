@@ -9,7 +9,7 @@ type InputFormProps = {
     disabled?: boolean;
 }
 
-const InputForm = ({name, formHandler, limit, autofocus = false, disabled} : InputFormProps) => {
+const InputForm = ({name, formHandler, limit, autofocus = false, disabled = false} : InputFormProps) => {
 
     const [value, setValue] = useState<string>("")
     const [danger, setDanger] = useState(false);
