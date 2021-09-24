@@ -51,4 +51,8 @@ Below Illustrations created with Adobe XD:
 ![Profile page Wireframe](./wireframe-c-profile.png)
 ![404 Not Found page Wireframe](./wireframe-d-notfound.png)
 
+## You found Dewaldo
+
+![Component Tree](./dewaldo.png)
+
 # 
