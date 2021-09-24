@@ -16,7 +16,7 @@ const TranslationResult = () => {
     const createHandSignElement = (translation: string) => {
 
         return (
-            translation.split("").map((letter, i) => {
+            translation.trim().split("").map((letter, i) => {
                 return (
                     <span key={i} className={styles.LetterContainer}>
                     <img className={styles.HandSign}

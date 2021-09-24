@@ -9,7 +9,7 @@ const TranslationListItem = ({translation} : TranslationListItemProps) => {
 
     const createHandSignElement = (translation : string) => {
         return (
-            translation.split("").map((letter, i)=> {
+            translation.trim().split("").map((letter, i)=> {
                 return <img
                     key={i}
                     alt={letter}
