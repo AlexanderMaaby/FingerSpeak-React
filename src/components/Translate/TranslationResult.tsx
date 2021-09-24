@@ -8,6 +8,7 @@ import styles from './TranslationResult.module.css';
 const TranslationResult = () => {
 
     const [translation, setTranslation] = useState<string | null>(null);
+    const [blocked, setBlocked] = useState<boolean>(false)
 
     const dispatch = useDispatch()
     const user = useUserSelector(state => state.user)
@@ -29,12 +30,14 @@ const TranslationResult = () => {
     }
 
     const handleSubmitTranslate = (value : string) => {
+        setBlocked(true) // Should prevent spamming submissions from crashing the app
         value = value.replace(/[^a-zA-Z]+/g, '');
         //If user session is active and the length of the word is still over 0 after regex trim.
         if (user && value.length > 0) {
             dispatch(actionAddToUserTranslations(user, value));
             setTranslation(value);
         }
+        setBlocked(false)
     }
 
     return (

@@ -15,7 +15,7 @@ const Profile = () => {
             {
                 user &&
                 <>
-                    <h1>Most Recent Translations</h1>
+                    <h1>Your Translations</h1>
                     <TranslationList user={user} limit={10}/>
                 </>
             }

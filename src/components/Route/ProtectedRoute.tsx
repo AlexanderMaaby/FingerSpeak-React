@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { Redirect, Route } from 'react-router'
 import getCurrentSession from '../../store/localstorage'
-import { actionSetUser } from '../../store/user/userActions'
+import { actionFetchUser } from '../../store/user/userActions'
 import { useUserSelector } from '../../store/user/userReducers'
 
 type ProtectedRouteProps = {
@@ -18,7 +18,7 @@ const ProtectedRoute = ({path, component, exact} : ProtectedRouteProps) => {
 
     useEffect(() => {
         const localUser = getCurrentSession();
-        if(localUser)  dispatch( actionSetUser(localUser) ) 
+        if(localUser)  dispatch( actionFetchUser(localUser.username) ) 
     }, [dispatch])
 
     if(!user) {

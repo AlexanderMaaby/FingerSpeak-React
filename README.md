@@ -1,46 +1,54 @@
-# Getting Started with Create React App
+# Noroff Front-End Assignment 3 - React
+## Lost In Translation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An app that takes your words and turns them into hands.
 
-## Available Scripts
+# Development Team & Deliveries:
 
-In the project directory, you can run:
+Repository on [Gitlab](https://seventhdisaster.gitlab.io/assignment-1-js-komputer/) (https://seventhdisaster.gitlab.io/assignment-1-js-komputer/)
 
-### `npm start`
+## Krister Emanuelsen:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Front-End Release: [FingerSpeak (https://seventh-noroff-react-lit.herokuapp.com)](https://seventh-noroff-react-lit.herokuapp.com)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+API Release: [https://seventh-noroff-task-api.herokuapp.com/translations](https://seventh-noroff-task-api.herokuapp.com/translations)
 
-### `npm test`
+## Alexander Maaby:  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Front-End Release: [FingerSpeak (https://aqueous-shore-61145.herokuapp.com/)](https://aqueous-shore-61145.herokuapp.com/)
 
-### `npm run build`
+API Release: [https://noroff-flammekastar-api.herokuapp.com/translations](https://noroff-flammekastar-api.herokuapp.com/translations)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Setup
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Local development setup of the app can be done by cloning the repository and running the following:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- `npm install` - to install required packages (required node / npm)
+- `npm start` - to start the dev server
+- (other): `npm build` - builds a production build of the app
 
-### `npm run eject`
+The project was initialized with typescript using `npx create-react-app --template typescript`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+> **Note:** `IMPORTANT!` <br/>
+In order to make calls to your own instance of the API, you need to change the URL and API-KEY found in: <br/> `/src/api/userAPI.ts`
+<br><br>
+We would normally ***never*** store keys outside of environment variables and exposed in the files, but for the sake of this assignment, this is how we do it.<br>
+Our endpoints and back-ends will be taken offline before these repositories are made public. 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Known Bugs and Errors:
+- On the translation page
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# Design
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Prior to development we created a component tree to plan out the structure of the app, along with wireframes to help guide the design during development. 
 
-## Learn More
+Below Illustrations created with Adobe XD:
+> **Note:** Current look of the app may differ from the the wireframe representations.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![Component Tree](./component-tree.png)
+![Login page Wireframe](./wireframe-a-login.png)
+![Translation / Main page Wireframe](./wireframe-b-translate.png)
+![Profile page Wireframe](./wireframe-c-profile.png)
+![404 Not Found page Wireframe](./wireframe-d-notfound.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# 

@@ -6,9 +6,10 @@ type InputFormProps = {
     formHandler(value: string): void,
     limit?: number | undefined,
     autofocus?: boolean;
+    disabled?: boolean;
 }
 
-const InputForm = ({name, formHandler, limit, autofocus = false} : InputFormProps) => {
+const InputForm = ({name, formHandler, limit, autofocus = false, disabled} : InputFormProps) => {
 
     const [value, setValue] = useState<string>("")
     const [danger, setDanger] = useState(false);
@@ -45,7 +46,7 @@ const InputForm = ({name, formHandler, limit, autofocus = false} : InputFormProp
             <button 
             className={styles.FormButton}
             formAction="submit" 
-            disabled={value.length < 1}
+            disabled={value.length < 1 || disabled}
             onClick={e => {
                 e.preventDefault() // Prevent HTML reload on submit
                 formHandler(value)

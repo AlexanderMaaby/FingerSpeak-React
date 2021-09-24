@@ -10,6 +10,7 @@
     font-size: 1.2rem;
     line-height: 0;
     transition: .2s ease;
+    margin: 3em 0;
 }
 
 .GeneralButton:hover {

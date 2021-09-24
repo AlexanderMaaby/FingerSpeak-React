@@ -14,7 +14,7 @@ type TranslationListProps = {
 const TranslationList = ({user, limit = 10} : TranslationListProps) => {
 
     const dispatch = useDispatch();
-    const [withoutLimit, setWithoutLimit] = useState(false)
+    const [withoutLimit, setWithoutLimit] = useState(false);
 
     const onDeleteClick = () => {
         if(window.confirm("Are you sure you want to delete all translations?")) {
@@ -39,12 +39,16 @@ const TranslationList = ({user, limit = 10} : TranslationListProps) => {
     return (
         <div>
             {
-                !withoutLimit &&
-                <p className={styles.LimitText}>Showing 10 most recent translations out of {user.translations.length}</p>
+                !withoutLimit && user.translations.length > 0 &&
+                <p className={styles.LimitText}>
+                    Showing ({user.translations.length > 10 ? 10 : user.translations.length} / {user.translations.length}) most recent translations
+                </p>
             }
+
             <div className={styles.TranslationList}>
                 { createTranslationList() }
             </div>
+
             {
                 user.translations.length > 0 &&
                 <div>
