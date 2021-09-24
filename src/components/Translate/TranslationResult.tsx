@@ -13,15 +13,16 @@ const TranslationResult = () => {
     const dispatch = useDispatch()
     const user = useUserSelector(state => state.user)
 
-    const createHandSignElement = (translation : string) => {
+    const createHandSignElement = (translation: string) => {
+
         return (
-            translation.split("").map((letter, i)=> {
+            translation.split("").map((letter, i) => {
                 return (
-                <span key={i} className={styles.LetterContainer}>
+                    <span key={i} className={styles.LetterContainer}>
                     <img className={styles.HandSign}
-                        width="10%"
-                        alt={letter}
-                        src={process.env.PUBLIC_URL + '/signs/' + letter.toLowerCase() + '.png'}/>
+                         width="10%"
+                         alt={letter}
+                         src={process.env.PUBLIC_URL + '/signs/' + letter.toLowerCase() + '.png'}/>
                     <p className={styles.HandLetter}>{letter}</p>
                 </span>
                 )
@@ -29,7 +30,21 @@ const TranslationResult = () => {
         )
     }
 
-    const handleSubmitTranslate = (value : string) => {
+    const createPepe = () => {
+        if ([translation].toString().toLowerCase().includes("pepe")) {
+            return (
+                <span className={styles.LetterContainer}>
+                    <img className={styles.HandSign}
+                         width="10%"
+                         alt={"pepe"}
+                         src={process.env.PUBLIC_URL + 'pepeyep.png'}/>
+                    <p className={styles.PepeLetter}>Pepe</p>
+                </span>
+            )
+        } else return
+    }
+
+    const handleSubmitTranslate = (value: string) => {
         value = value.replace(/[^a-zA-Z ]+/g, '');
         //If user session is active and the length of the word is still over 0 after regex trim.
         if (user && value.length > 0) {
@@ -51,7 +66,9 @@ const TranslationResult = () => {
                     </div>
                     <article className={styles.ResultContainer}>
                         <div>
+                            {createPepe()}
                             {createHandSignElement([translation].toString())}
+                            {createPepe()}
                         </div>
                     </article>
                 </>
