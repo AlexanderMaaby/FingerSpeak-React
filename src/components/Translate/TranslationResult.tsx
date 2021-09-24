@@ -30,7 +30,7 @@ const TranslationResult = () => {
     }
 
     const handleSubmitTranslate = (value : string) => {
-        value = value.replace(/[^a-zA-Z]+/g, '');
+        value = value.replace(/[^a-zA-Z ]+/g, '');
         //If user session is active and the length of the word is still over 0 after regex trim.
         if (user && value.length > 0) {
             setBlocked(true) // Should prevent spamming submissions from crashing the app
